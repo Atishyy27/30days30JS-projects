@@ -1,4 +1,4 @@
 # 30days30js
 
-Day1: Random Number Gzzzenerator
-Day2: ToDo Lista
+Day1: RandomNumberGenerator
+Day2: ToDoList
