@@ -3,7 +3,7 @@ let displayTime = document.getElementById("displayTime");
 let timer = null;
 
 function stopwatch() {
-    seconds++;
+    sec++;
     if (sec == 60) {
         sec = 0;
         min++;
@@ -12,10 +12,10 @@ function stopwatch() {
             hour++;
         }
     }
-    let h = hours < 10 ? "0" + hour : hour;
+    let h = hour < 10 ? "0" + hour : hour;
     let m = min < 10 ? "0" + min : min;
-    let s = hours < 10 ? "0" + sec : sec;
-    displayTime.innerHTML = hour + ":" + min + ":" + sec;
+    let s = sec < 10 ? "0" + sec : sec;
+    displayTime.innerHTML = h + ":" + m + ":" + s;
 }
 
 function watchStart() {

@@ -27,7 +27,10 @@ body {
     justify-content: center;
     cursor: pointer;
 }
-
-.buttons img:nth-child(2) {
-    width: 180px;
+.buttons img:nth-child(1) {
+    width: 40px;
+}.buttons img:nth-child(2) {
+    width: 80px;
+}.buttons img:nth-child(3) {
+    width: 40px;
 }
