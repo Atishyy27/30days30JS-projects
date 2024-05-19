@@ -45,7 +45,7 @@
     background: #fff;
     color: #333;
     padding: 20px;
-    margin: 20px p;
+    margin: 20px 0;
     outline: none;
     border-radius: 5px;
 }
@@ -54,6 +54,6 @@
     width: 25px;
     cursor: pointer;
     right: 15px;
-    bottom: 15;
     position: absolute;
+    bottom: 15px;
 }

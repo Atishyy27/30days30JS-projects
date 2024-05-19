@@ -2,8 +2,8 @@ const notesContainer = document.querySelector(".notes-container");
 const createbtn = document.querySelector(".btn");
 let notes = document.querySelector(".ipBox");
 
-function showNotes(){
-    notesContainer.innerHTML=localStorage.getItem("notes");
+function showNotes() {
+    notesContainer.innerHTML = localStorage.getItem("notes") || '';
 }
 showNotes();
 
@@ -18,12 +18,17 @@ createbtn.addEventListener("click", () => {
     ipBox.className = "ipBox";
     ipBox.setAttribute("contenteditable", "true");
     img.src = "images/delete.png";
-    notesContainer.appendChild(ipBox).appendChild(img);
+    img.alt = "Delete Note";
+    ipBox.appendChild(img);
+    notesContainer.appendChild(ipBox);
+
+    ipBox.addEventListener("keyup", updateStorage);
+    updateStorage();
 });
 
 notesContainer.addEventListener("click", function (e) {
-    if (e.target.tagName === "img") {
-        e.target.parent.remove();
+    if (e.target.tagName === "IMG") {
+        e.target.parentElement.remove();
         updateStorage();
     } else if (e.target.tagName === "p") {
         notes = document.querySelectorAll(".ipBox");
@@ -35,11 +40,11 @@ notesContainer.addEventListener("click", function (e) {
     }
 });
 
-document.addEventListener("keydown", event=>
-    {
-        if(event.key === "Enter"){
-            document.execCommand("insertLineBreak");
-            event.preventDefault();
-        }
+document.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+        document.execCommand("insertLineBreak");
+        event.preventDefault();
     }
-)
+});
+
+showNotes();
