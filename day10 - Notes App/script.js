@@ -18,7 +18,6 @@ createbtn.addEventListener("click", () => {
     ipBox.className = "ipBox";
     ipBox.setAttribute("contenteditable", "true");
     img.src = "images/delete.png";
-    img.alt = "Delete Note";
     ipBox.appendChild(img);
     notesContainer.appendChild(ipBox);
 
