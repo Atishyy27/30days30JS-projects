@@ -22,7 +22,7 @@
     text-align: center;
 }
 
-.nav {
+nav {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -36,4 +36,11 @@ nav.circle {
     background: #fff;
     color: #f53192;
     box-shadow: 0 5px 18px rgba(255, 26, 26, 0.22);
+}
+
+.song-img {
+    width: 220px;
+    border-radius: 50%;
+    bottom: 8px solid #fff;
+    box-shadow: 0 10px 60px rgba(255, 26, 26, 0.22);
 }
