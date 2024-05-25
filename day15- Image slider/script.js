@@ -1,19 +1,40 @@
-let scrollContainer = document.querySelector(".gallery");
+document.addEventListener("DOMContentLoaded", () => {
+    let scrollContainer = document.querySelector(".gallery");
 
-let backBtn = document.getElementById("backBtn");
-let nextBtn = document.getElementById("nextBtn");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementById("nextBtn");
 
-scrollContainer.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
-});
+    // Continuous scrolling function
+    function autoScroll() {
+        scrollContainer.scrollLeft += 1; // Incremental scrolling
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+            scrollContainer.scrollLeft = 0;
+        }
+    }
 
-nextBtn.addEventListener("click", () => {
-    scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft += 900;
-});
+    // Set an interval to continuously scroll the gallery
+    let scrollInterval = setInterval(autoScroll, 10);
 
-backBtn.addEventListener("click", () => {
-    scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft -= 900;
+    // Pause auto-scrolling when hovering over the gallery
+    scrollContainer.addEventListener("mouseover", () => {
+        clearInterval(scrollInterval);
+    });
+
+    // Resume auto-scrolling when not hovering over the gallery
+    scrollContainer.addEventListener("mouseout", () => {
+        scrollInterval = setInterval(autoScroll, 10);
+    });
+
+    // Scroll on button click
+    nextBtn.addEventListener("click", () => {
+        clearInterval(scrollInterval);
+        scrollContainer.scrollLeft += scrollContainer.clientWidth / 3; // Scroll one-third of the gallery width
+        scrollInterval = setInterval(autoScroll, 10);
+    });
+
+    backBtn.addEventListener("click", () => {
+        clearInterval(scrollInterval);
+        scrollContainer.scrollLeft -= scrollContainer.clientWidth / 3; // Scroll one-third of the gallery width
+        scrollInterval = setInterval(autoScroll, 10);
+    });
 });

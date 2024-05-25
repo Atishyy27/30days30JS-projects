@@ -9,47 +9,44 @@ body {
     background: #191919;
 }
 
-.gallery {
-    width: 900px;
-    display: flex;
-    overflow-x: scroll;
-}
-
-.gallery div {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 20px;
-    padding: 10px;
-    flex: none;
-}
-
-.gallery div img {
-    width: 100%;
-    filter: grayscale(100%);
-    transition: transform 0.3s;
-
-}
-
-.gallery::-webkit-scrollbar {
-    display: none;
-}
-
 .gallery-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10% auto;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: hidden; /* Enable horizontal scrolling */
+    width: 80%;
+    position: relative;
+}
+
+.gallery span {
+    flex: none;
+    padding: 10px;
+}
+
+.gallery span img {
+    height: 300px; /* Set a fixed height for all images */
+    width: auto; /* Let the width adjust automatically */
+    max-height: 100%; /* Ensure images don't exceed their original height */
+    object-fit: contain; /* Ensure images maintain aspect ratio and fit within their container */
+    filter: grayscale(100%);
+    transition: transform 0.3s, filter 0.3s;
 }
 
 #backBtn,
 #nextBtn {
     width: 50px;
     cursor: pointer;
-    margin: 40px;
+    margin: 20px;
 }
 
-.gallery div img:hover {
+.gallery span img:hover {
     cursor: pointer;
     transform: scale(1.1);
     filter: grayscale(0);
