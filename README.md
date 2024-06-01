@@ -16,5 +16,4 @@ Day15: Images Slider
 Day16: 
 Day17:
 Day18:
-Day19: 
-Day20: 
+Day19:
