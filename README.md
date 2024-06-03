@@ -15,5 +15,3 @@ Day14: Circular Progress bar
 Day15: Images Slider
 Day16: 
 Day17:
-Day18:
-Day19:
